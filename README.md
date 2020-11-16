@@ -104,8 +104,13 @@ Faça o login com um usuário do RH-SSO.
 
 ** Caso receba a mensagem de erro: **Your account isn't active or hasn't been approved yet.**, ative a flag **Email Verified** para **ON** nas configurações do seu usuário no RH-SSO.
 
+Após validar o fluxo de autenticação, clique em **Publish** e verifique se o **State** mudou para **Visible**
 
+![](images/14.png)
 
+Pronto, sua console de administração do 3scale está instegrada ao Red Hat Single Sign-On (RH-SSO). Basta clicar em **Authenticate through Red Hat Single Sign-On** que seu login será feito com base nos usuários que constam no RH-SSO.
+
+![](images/15.png)
 
 
 
