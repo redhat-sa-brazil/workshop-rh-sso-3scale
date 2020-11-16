@@ -1,4 +1,4 @@
-# Workshop integrando o Red Hat Single Sign-On com o 3Scale
+# Integrando o Red Hat Single Sign-On com o 3Scale
 
 Demonstração de como integrar o 3scale com o Red Hat Single Sign-On (RH-SSO) e posteriormente expor APIS através do 3scale adicionando um camada de segurança.
 
