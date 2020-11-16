@@ -109,7 +109,7 @@ Após validar o fluxo de autenticação, clique em **Publish** e verifique se o 
 
 ![](images/14.png)
 
-Pronto, sua console de administração do 3scale está instegrada ao Red Hat Single Sign-On (RH-SSO). Basta clicar em **Authenticate through Red Hat Single Sign-On** que seu login será feito com base nos usuários que constam no RH-SSO.
+Pronto, sua console de administração do 3scale está instegrada ao Red Hat Single Sign-On (RH-SSO). Basta clicar em **Authenticate through Red Hat Single Sign-On** que seu login será feito com base nos usuários do RH-SSO.
 
 ![](images/15.png)
 
