@@ -37,7 +37,7 @@ Do lado esquerdo acima, estará o nome do realm criado conforme imagem abaixo:
 
 ### Adicionando um novo Client. <a name="testdrive-step-2"></a>
 
-Agora iremos adicionar um novo client no realm **3scale-admin** que criamos anteriormente.
+Adicione um novo client no realm **3scale-admin** que criamos anteriormente.
 
 Vá até a opção **Clients** e clique em **Create**.
 
@@ -47,7 +47,7 @@ Informe o **Client ID**, no nosso caso será o **3scale** e clique em **Save**.
 
 ![](images/4.png)
 
-Agora iremos configurar os parâmetros deste **Client** seguindo os parâmetros abaixo:
+Configure os parâmetros deste **Client** seguindo os parâmetros abaixo:
 
 **Client ID:** informe o nome desejado, no nosso caso será **3scale-rh-sso**.
 **Enabled:** mude para **ON**.
