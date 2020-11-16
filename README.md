@@ -49,14 +49,14 @@ Informe o **Client ID**, no nosso caso será o **3scale** e clique em **Save**.
 
 Configure os parâmetros deste **Client** seguindo os parâmetros abaixo:
 
-**Client ID:** informe o nome desejado, no nosso caso será **3scale-rh-sso**.
-**Enabled:** mude para **ON**.
-**Consent Required:** mude para **OFF**.
-**Client Protocol:** selecione **openid-connect**.
-**Access Type:** selecione **confidential**.
-**Standard Flow Enabled:** mude para **ON**.
-**Root URL:** Informe a URL da console de administração do 3scale https://yourdomain.3scale.net.
-**Valid Redirect URLs:** Informe o endereço da console de administração do 3scale e adicione: **/*** por exemplo: https://yourdomain.3scale.net/*.
+- **Client ID:** informe o nome desejado, no nosso caso será **3scale-rh-sso**.
+- **Enabled:** mude para **ON**.
+- **Consent Required:** mude para **OFF**.
+- **Client Protocol:** selecione **openid-connect**.
+- **Access Type:** selecione **confidential**.
+- **Standard Flow Enabled:** mude para **ON**.
+- **Root URL:** Informe a URL da console de administração do 3scale https://yourdomain.3scale.net.
+- **Valid Redirect URLs:** Informe o endereço da console de administração do 3scale e adicione: **/*** por exemplo: https://yourdomain.3scale.net/*.
 
 TODOS os demais parâmetros devem ser mudados para **OFF**.
 
