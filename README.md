@@ -113,5 +113,9 @@ Pronto, sua console de administração do 3scale está instegrada ao Red Hat Sin
 
 ![](images/15.png)
 
+Após logar com o usuário do RH-SSO, logue novamente na console de administração do 3scale e vá em **Account Settings (*) - Users - Listing**, clique em **Edit** e na seção **Administrative**, aplique a **Role - Admin (full access)** para seu usuário e depois clique em **Update User**, assim poderemos seguir para os próximos passos com todas as permissões aplicadas a este usuário.
+
+![](images/16.png)
 
 
+### Expondo uma API no 3scale. <a name="testdrive-step-4"></a>
