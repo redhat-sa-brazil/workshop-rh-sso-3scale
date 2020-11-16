@@ -28,11 +28,11 @@ Neste primeiro passo iremos configurar o Red Hat Single Sign-ON (RH-SSO) seguind
 Após realizar o login na console de administração do RH-SSO, posicione o mouse abaixo de **Master** (lado esquerdo acima) e clique em **Add realm**.
 Informe o nome do realm **3scale-admin**
 
-![](images/01.png)
+![](images/1.png)
 
 Do lado esquerdo acima, estará o nome do realm criado conforme imagem abaixo:
 
-![](images/02.png)
+![](images/2.png)
 
 
 ### Adicionando um novo Client. <a name="testdrive-step-2"></a>
@@ -41,11 +41,11 @@ Agora iremos adicionar um novo client no realm **3scale-admin** que criamos ante
 
 Vá até a opção **Clients** e clique em **Create**.
 
-![](images/03.png)
+![](images/3.png)
 
 Informe o **Client ID**, no nosso caso será o **3scale** e clique em **Save**.
 
-![](images/04.png)
+![](images/4.png)
 
 Agora iremos configurar os parâmetros deste **Client** seguindo os parâmetros abaixo:
 
@@ -60,7 +60,7 @@ Agora iremos configurar os parâmetros deste **Client** seguindo os parâmetros 
 
 TODOS os demais parâmetros devem ser mudados para **OFF**.
 
-![](images/05.png)
+![](images/5.png)
 
 
 
