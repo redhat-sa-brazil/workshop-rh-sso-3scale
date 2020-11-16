@@ -10,13 +10,9 @@ Este workshop tem como pré requisito a instalação e configuração de uma ins
 
 ## Laboratórios:
 
-0. [Configurando o Red Hat Single Sign-ON (RH-SSO)] (#testdrive-step-0)
-1. [Criando um realm] (#testdrive-step-1)
-2. [Adicionando um novo Client] (#testdrive-step-2)
-3. [Criando uma API Rest no Fuse Online utilizando API First Approach](#testdrive-step-3)
-4. [Utilizando Conditional Flows](#testdrive-step-4)
-4. [SoapToRest](https://developers.redhat.com/blog/2018/07/24/migrate-soap-to-rest-with-camel/)
-5. [API First](https://developers.redhat.com/blog/2018/07/12/contract-first-api-design-with-apicurio-and-red-hat-fuse/)
+0. [Configurando o Red Hat Single Sign-ON (RH-SSO)](#testdrive-step-0)
+1. [Criando um realm](#testdrive-step-1)
+2. [Adicionando um novo Client](#testdrive-step-2)
 
 
 ### Configurando o Red Hat Single Sign-ON (RH-SSO). <a name="testdrive-step-0"></a>
