@@ -1,4 +1,4 @@
-# Workshop integrando o Red Hat Single Sign-On e 3Scale
+# Workshop integrando o Red Hat Single Sign-On com o 3Scale
 
 Demonstração de como integrar o 3scale com o Red Hat Single Sign-On (RH-SSO) e posteriormente expor APIS através do 3scale adicionando um camada de segurança.
 
@@ -62,9 +62,21 @@ TODOS os demais parâmetros devem ser mudados para **OFF**.
 
 ![](images/5.png)
 
+Vá até a aba **Credentials** e copie o client secret gerado conforme a imagem a seguir:
 
+![](images/6.png)
 
+Posteriormente vá até a aba **Mappers** e clique em **Add Builtin**
 
+![](images/7.png)
+
+Selecione **email verified** e clique em **Add selected**
+
+![](images/8.png)
+
+Certifique-se de ter configurado corretamente conforme imagem a seguir:
+
+![](images/9.png)
 
 
 
