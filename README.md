@@ -10,15 +10,63 @@ Este workshop tem como pré requisito a instalação e configuração de uma ins
 
 ## Laboratórios:
 
-0. [Criando um banco de dados no Openshift](#testdrive-step-0)
-1. [Criando a tabela no banco de dados](#testdrive-step-1)
-2. [Criando uma Conexão com um banco de dados no Fuse Online ](#testdrive-step-2)
+0. [Configurando o Red Hat Single Sign-ON (RH-SSO)] (#testdrive-step-0)
+1. [Criando um realm] (#testdrive-step-1)
+2. [Adicionando um novo Client] (#testdrive-step-2)
 3. [Criando uma API Rest no Fuse Online utilizando API First Approach](#testdrive-step-3)
 4. [Utilizando Conditional Flows](#testdrive-step-4)
 4. [SoapToRest](https://developers.redhat.com/blog/2018/07/24/migrate-soap-to-rest-with-camel/)
 5. [API First](https://developers.redhat.com/blog/2018/07/12/contract-first-api-design-with-apicurio-and-red-hat-fuse/)
 
 
-### Criando um banco de dados no Openshift <a name="testdrive-step-0"></a>
+### Configurando o Red Hat Single Sign-ON (RH-SSO). <a name="testdrive-step-0"></a>
+
+Neste primeiro passo iremos configurar o Red Hat Single Sign-ON (RH-SSO) seguindo a [documentação do produto](https://access.redhat.com/documentation/en-us/red_hat_3scale_api_management/2.9/html-single/creating_the_developer_portal/index#enabling_and_disabling_authentication_via_red_hat_single_sign_on).
+
+### Criando um realm. <a name="testdrive-step-1"></a>
+
+Após realizar o login na console de administração do RH-SSO, posicione o mouse abaixo de **Master** (lado esquerdo acima) e clique em **Add realm**.
+Informe o nome do realm **3scale-admin**
+
+![](images/01.png)
+
+Do lado esquerdo acima, estará o nome do realm criado conforme imagem abaixo:
+
+![](images/02.png)
+
+
+### Adicionando um novo Client. <a name="testdrive-step-2"></a>
+
+Agora iremos adicionar um novo client no realm **3scale-admin** que criamos anteriormente.
+
+Vá até a opção **Clients** e clique em **Create**.
+
+![](images/03.png)
+
+Informe o **Client ID**, no nosso caso será o **3scale** e clique em **Save**.
+
+![](images/04.png)
+
+Agora iremos configurar os parâmetros deste **Client** seguindo os parâmetros abaixo:
+
+**Client ID:** informe o nome desejado, no nosso caso será **3scale-rh-sso**.
+**Enabled:** mude para **ON**.
+**Consent Required:** mude para **OFF**.
+**Client Protocol:** selecione **openid-connect**.
+**Access Type:** selecione **confidential**.
+**Standard Flow Enabled:** mude para **ON**.
+**Root URL:** Informe a URL da console de administração do 3scale https://yourdomain.3scale.net.
+**Valid Redirect URLs:** Informe o endereço da console de administração do 3scale e adicione: **/*** por exemplo: https://yourdomain.3scale.net/*.
+
+TODOS os demais parâmetros devem ser mudados para **OFF**.
+
+![](images/05.png)
+
+
+
+
+
+
+
 
 
