@@ -74,6 +74,35 @@ Certifique-se de ter configurado corretamente conforme imagem a seguir:
 
 ![](images/9.png)
 
+### Configurando o 3scale Admin Console. <a name="testdrive-step-3"></a>
+
+Neste primeiro passo iremos integrar a console de administração do 3 scale com o nosso client criado no Red Hat Single Sign-On (RH-SSO).
+
+Após logar na console de administração do 3scale, vá até **Account Settings (*) - Users - SSO Integrations **
+
+![](images/10.png)
+
+Clique em **New SSO Integration** e preencha os campos conforme abaixo:
+
+- **Client:** Nome do client no Red Hat Single Sign-On
+- **Client Secret:** Client secret 
+- **Realm:** Nome do Realm e URL de acesso para o Red Hat Single Sign-ON
+
+Posteriormente clique em **Create Authentication Provider**
+
+![](images/11.png)
+
+Agora iremos testar nossa integração. Clique em **Test authentication flow now**
+
+![](images/12.png)
+
+Faça o login com um usuário do RH-SSO. 
+
+![](images/13.png)
+
+** Caso você não tenha criado um usuário anteriormente, siga os passos descritos em [**4.2. Creating New Users**](https://access.redhat.com/documentation/en-us/red_hat_3scale_api_management/2.9/html-single/creating_the_developer_portal/index#enabling_and_disabling_authentication_via_red_hat_single_sign_on)
+
+
 
 
 
