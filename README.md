@@ -45,7 +45,7 @@ Informe o **Client ID**, no nosso caso será o **3scale** e clique em **Save**.
 
 ![](images/4.png)
 
-Configure os parâmetros deste **Client** seguindo os parâmetros abaixo:
+Configure os parâmetros deste **Client** conforme os campos abaixo:
 
 - **Client ID:** informe o nome desejado, no nosso caso será **3scale-rh-sso**.
 - **Enabled:** mude para **ON**.
