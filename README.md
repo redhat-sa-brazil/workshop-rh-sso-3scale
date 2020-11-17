@@ -18,7 +18,8 @@ Este workshop tem como pré requisito a instalação e configuração de uma ins
 
 ## Expondo APIs através do 3scale e integrando com o Red Red Single Sign-ON (RH-SSO):
 
-0. [Expondo uma API no 3scale.](#testdrive-step-4)
+0. [Introdução.](#testdrive-step-4)
+1. [Criando um Realm no RH-SSO.](#testdrive-step-5)
 
 ### Configurando o Red Hat Single Sign-ON (RH-SSO). <a name="testdrive-step-0"></a>
 
@@ -122,17 +123,11 @@ Após logar com o usuário do RH-SSO, logue novamente na console de administraç
 ![](images/16.png)
 
 
-### Expondo uma API no 3scale. <a name="testdrive-step-4"></a>
+### Introdução. <a name="testdrive-step-4"></a>
 
-Iremos expor através do 3scale uma API, como se trata de apenas um examplo, iremos utilizar uma API pública.
+Nos passos a seguir, iremos confgurar um novo realm no Red Hat Single Sign-On e posteriormente um novo client que serão utilizados pelas APIS que serão expostas no 3 scale. Seguiremos os passos [descritos na documentação](https://access.redhat.com/documentation/en-us/red_hat_3scale_api_management/2.7/html/administering_the_api_gateway/openid-connect).
 
-O primeiro passo é selecionar no menu central a opção **Dashboards**
-
-![](images/17.png)
-
-Em API, cliquem em **New Product**
-
-![](images/18.png)
+### Criando um Realm no RH-SSO. <a name="testdrive-step-5"></a>
 
 
 
