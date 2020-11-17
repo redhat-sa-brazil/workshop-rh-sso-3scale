@@ -13,7 +13,8 @@ Este workshop tem como pré requisito a instalação e configuração de uma ins
 0. [Configurando o Red Hat Single Sign-ON (RH-SSO)](#testdrive-step-0)
 1. [Criando um realm](#testdrive-step-1)
 2. [Adicionando um novo Client](#testdrive-step-2)
-3, [Configurando o 3scale Admin Console](#testdrive-step-3)
+3. [Integrando 3scale Admin Console com RH-SSO](#testdrive-step-3)
+4. [Expondo uma API no 3scale.](#testdrive-step-4)
 
 
 ### Configurando o Red Hat Single Sign-ON (RH-SSO). <a name="testdrive-step-0"></a>
