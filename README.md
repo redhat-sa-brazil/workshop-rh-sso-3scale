@@ -120,4 +120,16 @@ Após logar com o usuário do RH-SSO, logue novamente na console de administraç
 
 ### Expondo uma API no 3scale. <a name="testdrive-step-4"></a>
 
+Iremos expor através do 3scale uma API, como se trata de apenas um examplo, iremos utilizar uma API pública.
+
+O primeiro passo é selecionar no menu central a opção **Dashboards**
+
+![](images/17.png)
+
+Em API, cliquem em **New Product**
+
+![](images/18.png)
+
+
+
 
