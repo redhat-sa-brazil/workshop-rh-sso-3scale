@@ -8,14 +8,17 @@ O Red Hat Single Sign-On (RH-SSO) é uma solução de Sign-On integrada (SSO) qu
 
 Este workshop tem como pré requisito a instalação e configuração de uma instancia do Red Hat Single Sign-ON e do 3scale. As instruções podem ser encontradas no portal Red Hat (https://access.redhat.com/documentation/en-us/).
 
-## Laboratórios:
+## Integrando console de administração do 3scale com o Red Hat Single Sign-On (RH-SSO):
 
 0. [Configurando o Red Hat Single Sign-ON (RH-SSO)](#testdrive-step-0)
 1. [Criando um realm](#testdrive-step-1)
 2. [Adicionando um novo Client](#testdrive-step-2)
 3. [Integrando 3scale Admin Console com RH-SSO](#testdrive-step-3)
-4. [Expondo uma API no 3scale.](#testdrive-step-4)
 
+
+## Expondo APIs através do 3scale e integrando com o Red Red Single Sign-ON (RH-SSO):
+
+0. [Expondo uma API no 3scale.](#testdrive-step-4)
 
 ### Configurando o Red Hat Single Sign-ON (RH-SSO). <a name="testdrive-step-0"></a>
 
