@@ -22,11 +22,11 @@ Este workshop tem como pré requisito a instalação e configuração de uma ins
 1. [Criando um Realm no RH-SSO.](#testdrive-step-5)
 2. [Expondo sua API backend no 3scale.](#testdrive-step-6)
 3. [Integrando sua API com o RH-SSO.](#testdrive-step-7)
-4. [Configurando o Zync pod para certificados auto assinados].(#testdrive-step-8)
-5. [Criando um Application Plan].(#testdrive-step-9)
-6. [Criando um novo usuário para acesso a API].(#testdrive-step-10)
-7. [Vinculando usuário a uma Application].(#testdrive-step-11)
-8. [Testando Integração].(#testdrive-step-12)
+4. [Configurando o Zync pod para certificados auto assinados.](#testdrive-step-8)
+5. [Criando um Application Plan.](#testdrive-step-9)
+6. [Criando um novo usuário para acesso a API.](#testdrive-step-10)
+7. [Vinculando usuário a uma Application.](#testdrive-step-11)
+8. [Testando Integração.](#testdrive-step-12)
 
 ### Configurando o Red Hat Single Sign-ON (RH-SSO). <a name="testdrive-step-0"></a>
 
