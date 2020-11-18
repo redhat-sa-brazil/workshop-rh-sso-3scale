@@ -22,7 +22,10 @@ Este workshop tem como pré requisito a instalação e configuração de uma ins
 1. [Criando um Realm no RH-SSO.](#testdrive-step-5)
 2. [Expondo sua API backend no 3scale.](#testdrive-step-6)
 3. [Integrando sua API com o RH-SSO.](#testdrive-step-7)
-
+4. [Configurando o Zync pod para certificados auto assinados].(#testdrive-step-8)
+5. [Criando um Application Plan].(#testdrive-step-9)
+6. [Criando um novo usuário para acesso a API].(#testdrive-step-10)
+7.[Vinculando usuário a uma Application].(#testdrive-step-11)
 
 ### Configurando o Red Hat Single Sign-ON (RH-SSO). <a name="testdrive-step-0"></a>
 
@@ -257,6 +260,9 @@ Em **CREDENTIALS LOCATION** selecione **As HTTP Headers**
 
 Role a página até o final e clique em **UPDATE PRODUCT**
 
+Posteriormente, vá até a aba **Configuration** e clique em **Promoto to staging API Cast** para aplicar as novas configurações.
+
+![](images/54.png)
 
 ### Configurando o Zync pod para certificados auto assinados. <a name="testdrive-step-8"></a>
 
@@ -325,7 +331,7 @@ Preencha os campos do seu Application Plan e clique em **Create Application Plan
 
   ![](images/46.png)
 
-  ### Criando um novo usuário para acesso a sua API. <a name="testdrive-step-10"></a>
+  ### Criando um novo usuário para acesso a API. <a name="testdrive-step-10"></a>
 
 Agora no menu central selecione **Audience** e logo em seguida no menu lateral vá até **Accounts - Listing**e posteriormente clique em **Create**
 
@@ -339,7 +345,7 @@ Agora veja que seu usuário foi criado com sucesso.
 
   ![](images/49.png)
 
-  ### Vinculando seu usuário a uma Application. <a name="testdrive-step-10"></a>
+  ### Vinculando usuário a uma Application. <a name="testdrive-step-11"></a>
 
 Logo após criar seu usuário que irá acessar sua API sendo exposta pelo 3scale, clique em **Applications** e posteriormente **Create Application**
 
@@ -356,6 +362,52 @@ Veja que neste momento as **API Credentials** para acesso a sua API exposta no 3
 Vá até a console de administração do RH-SSO e veja se este client foi sincronizado com o RH-SSO conforme a imagem abaixo:
   
   ![](images/53.png)
+  
+  Em caso de problemas, consulte os logs do pod **zync-que-xxx** no projeto do 3scale e/ou verifique se as configurações foram aplicadas corretamente.
+
+  ### Testando Integração. <a name="testdrive-step-12"></a>
+
+Utilizando o username e password do usuário que criamos no 3scale, iremos realizar um **POST** no endereço do **token_endpoint** do **RH-SSO**. Devemos enviar como parâmetro:
+
+- **username**: usuário criado no RH-SSO
+- **password**: password do usuário criado no RH-SSO
+- **grant_type**: password
+- **client_secret**: o client secret da sua aplicaçao que pode ser consultado no 3scale
+- **client_id**: client id da aplicação que pode ser consultado na console do 3scale
+
+O **token_endpoint** do seu realm pode ser consultado na console do RH-SSO em **Endpoints** conforme a imagem a seguir:
+
+  ![](images/55.png)
+  
+  ![](images/56.png)
+
+
+Irei utilizar o postman para realizar este teste:
+
+  ![](images/57.png)
+  
+  Será retornado o access token:
+ 
+   ![](images/58.png)
+   
+ De posse do access token, agora iremos realizar a chamada para nossa aplicação.
+ 
+ Vá até a console do 3scale e copie a URL de acesso da sua API exposta no 3scale, basta selecionar a API no menu central e posteriormente no menu lateral selecionar **Integration - Configuration**
+
+   ![](images/59.png)
+
+No postman, faça uma request informando o **endpoint** e a **Mapping Rule**da API exposta no 3scale.
+
+No header passe como parâmetro a variável **Authorization** com o valor **Bearer token_coletado** conforme na imagem a seguir:
+
+   ![](images/60.png)
+   
+Pronto, o agora temos o retorno da API exposta no 3scale
+
+   ![](images/61.png)
+
+   
+
 
 
 
