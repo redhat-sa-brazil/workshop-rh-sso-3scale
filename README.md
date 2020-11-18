@@ -129,6 +129,43 @@ Nos passos a seguir, iremos confgurar um novo realm no Red Hat Single Sign-On e 
 
 ### Criando um Realm no RH-SSO. <a name="testdrive-step-5"></a>
 
+Crie um novo **realm** chamado **3scale-apis**
+
+![](images/17.png)
+
+Crie um novo client chamado **3scale-apis**
+
+![](images/18.png)
+
+Configure os parâmetros do novo client conforme abaixo:
+
+- **Access Type**: confidential.
+- **Standard Flow Enabled**:  OFF.
+- **Direct Access Grants Enabled**:  OFF.
+- **Service Accounts Enabled**: ON
+
+![](images/19.png)
+
+Após salvar as configurações do client, vá até a aba **Service Account Roles** 
+
+![](images/20.png)
+
+Em **Client Roles** digite **realm-management**
+
+![](images/21.png)
+
+Selecione **manage-clients** em **Available Roles** e clique em **Add Selected**
+
+![](images/22.png)
+
+Anote o **client-id** e o **cient-secret** que pode ser consultado na aba **Credentials** pois usaremos posteriormente
+
+![](images/23.png)
+
+
+
+
+
 
 
 
