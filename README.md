@@ -20,6 +20,9 @@ Este workshop tem como pré requisito a instalação e configuração de uma ins
 
 0. [Introdução.](#testdrive-step-4)
 1. [Criando um Realm no RH-SSO.](#testdrive-step-5)
+2. [Expondo sua API backend no 3scale.](#testdrive-step-6)
+3. [Integrando sua API com o RH-SSO.](#testdrive-step-7)
+
 
 ### Configurando o Red Hat Single Sign-ON (RH-SSO). <a name="testdrive-step-0"></a>
 
@@ -163,9 +166,89 @@ Anote o **client-id** e o **cient-secret** que pode ser consultado na aba **Cred
 ![](images/23.png)
 
 
+### Expondo sua API backend no 3scale. <a name="testdrive-step-6"></a>
+
+Neste exemplo iremos expor uma API backend que foi realizado o deploy no Openshift. O código desta api e as informações de deploy no Openshift podem ser encotradas em: https://github.com/raraujo-dev/spring-boot-rest-api
+
+Após realizar o login no 3scale, clique na aba **BACKENDS** e clique em **NEW BACKEND**
+
+![](images/24.png)
+
+Preencha os campos de sua API que será exposta no 3scale, informe a URL de acesso em **Private Base URL**
+
+![](images/25.png)
+
+No menu lateral selecione **Methods and Metrics** e clique em **New method**
+
+![](images/26.png)
+
+Nossa API REST que será exposta possui retorna no path /currentDateTime a data e o horário do ambiente que a API está rodando.
+
+Neste caso iremos adicionar o método que irá retornar esta informação, assim poderemos coletar métricas posteriormente deste método específico.
+
+Preencha as informações do seu método e clique em **Create Method**
+
+![](images/27.png)
+
+Agora clique em **Add a mapping rule**
+
+![](images/28.png)
+
+Neste exemplo, irei preencher as informações do meu path **/currentDateTime** da minha API que está sendo exposta pelo 3scale.
+
+Após preencher as informações da sua API clique em **Create Mapping Rule**
+
+![](images/29.png)
+
+No menu central, selecione **Dashboard** e posteriormente a aba **PRODUCTS**
+
+![](images/30.png)
+
+Clique em **NEW PRODUCT**, preencha as informações da sua API que será exposta como um produto cadastrado no 3scale e posteriormente clique em **Create Product**
+
+![](images/31.png)
+
+Após criar o produto, você será direcionado para a página de **Overview**
+
+![](images/32.png)
+
+No menu lateral clique em **Integration - Backends** e clique em **Add Backend**
+
+![](images/33.png)
+
+Selecione o backend cadastrado anteriormente e preencha o **Path** da sua API antes de clicar em **Add to Product**
+
+![](images/34.png)
+
+### Integrando sua API com o RH-SSO. <a name="testdrive-step-7"></a>
+
+No menu lateral selecione **Settings**
+
+![](images/35.png)
+
+Em **AUTHENTICATION** mude para **OpenID Connect Use OpenID Connect for any OAuth 2.0 flow.**
+
+![](images/36.png)
+
+No campo **OpenID Connect Issuer** iremos preencher o location do RH-SSO seguindo o modelo https://<CLIENT_ID>:<CLIENT_SECRET>@<HOST>:<PORT>/auth/realms/<REALM_NAME>". 
+
+No nosso caso iremos preencher os campos conforme as informações do client criado no RH-SSO.
+
+- **CLIENT_ID**: 3scale-apis
+- **CLIENT_SECRET**: 387200ee-6828-4d63-aa1a-2d07ad0034a3
+- **HOST**: sso-claro-rh-sso.apps.saopaulo-996b.open.redhat.com
+- **PORT**: 443
+- **REALM NAME**: 3scale-apis
+
+A url final ficará da seguinte forma **https://3scale-apis:387200ee-6828-4d63-aa1a-2d07ad0034a3@https://sso-claro-rh-sso.apps.saopaulo-996b.open.redhat.com/auth/realms/3scale-apis**
+
+![](images/37.png)
+
+Em **CREDENTIALS LOCATION** selecione **As HTTP Headers**
+
+![](images/38.png)
 
 
-
-
+Role a página até o final e clique em **UPDATE PRODUCT**
 
 
