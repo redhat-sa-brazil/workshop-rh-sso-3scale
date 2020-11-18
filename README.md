@@ -236,13 +236,19 @@ No nosso caso iremos preencher os campos conforme as informações do client cri
 
 - **CLIENT_ID**: 3scale-apis
 - **CLIENT_SECRET**: 387200ee-6828-4d63-aa1a-2d07ad0034a3
-- **HOST**: sso-claro-rh-sso.apps.saopaulo-996b.open.redhat.com
+- **HOST**: sso-xxx-rh-sso.apps.saopaulo-996b.open.redhat.com
 - **PORT**: 443
 - **REALM NAME**: 3scale-apis
 
-A url final ficará da seguinte forma **https://3scale-apis:387200ee-6828-4d63-aa1a-2d07ad0034a3@https://sso-claro-rh-sso.apps.saopaulo-996b.open.redhat.com/auth/realms/3scale-apis**
+A url final ficará da seguinte forma **https://3scale-apis:387200ee-6828-4d63-aa1a-2d07ad0034a3@sso-xxx-rh-sso.apps.saopaulo-996b.open.redhat.com/auth/realms/3scale-apis**
 
 ![](images/37.png)
+
+Em **OIDC AUTHORIZATION FLOW** selecione:
+
+- Authorization Code Flow
+- Service Accounts Flow
+- Direct Access Grant Flow
 
 Em **CREDENTIALS LOCATION** selecione **As HTTP Headers**
 
@@ -251,9 +257,10 @@ Em **CREDENTIALS LOCATION** selecione **As HTTP Headers**
 
 Role a página até o final e clique em **UPDATE PRODUCT**
 
-### Configurando o Zync pod. <a name="testdrive-step-8"></a>
 
-Você deve estabelecer uma conexão SSL entre Zync e Red Hat Single Sign-On que será responsável por sincronizar os dados entre o 3scale e o RH-SSO. Este procedimento pode ser encontrado na documentação em **[Configure Zync to use custom CA certificates]**(https://access.redhat.com/documentation/en-us/red_hat_3scale_api_management/2.7/html/administering_the_api_gateway/openid-connect#configure_zync_to_use_custom_ca_certificates)
+### Configurando o Zync pod para certificados auto assinados. <a name="testdrive-step-8"></a>
+
+Quando integramos o 3scale com o Rh-SSO é estabelecido uma conexão SSL entre Zync (3scale) e Red Hat Single Sign-On que será responsável por sincronizar os dados entre o 3scale e o RH-SSO. Quando utilizado um certificado auto assinado (self signed) é necessário realizar uma configuração adicional. Este procedimento pode ser encontrado na documentação em **[Configure Zync to use custom CA certificates]**(https://access.redhat.com/documentation/en-us/red_hat_3scale_api_management/2.7/html/administering_the_api_gateway/openid-connect#configure_zync_to_use_custom_ca_certificates)
 
 Após realizar o login no cluster openshift, execute o comando abaixo no namespace onde está instalado o 3scale.
 
@@ -306,6 +313,50 @@ Execute o comando #oc exec <zync-pod-id> cat /etc/pki/tls/zync/zync.pem  - para 
 
   ![](images/44.png)
   
+  ### Criando um Application Plan. <a name="testdrive-step-9"></a>
+
+Application Plans estabelecem as regras (limites, preços, recursos) para usar sua API; cada aplicativo de desenvolvedor acessando sua API estará acessando-o dentro das restrições de um Application Plan.
+
+No menu central selecione o produto que acabamos de criar **Get Current Date and Time**, posteriormente no menu lateral selecione **Applications - Applications Plans** e clique em **Create Application Plan**
+
+  ![](images/45.png)
+
+Preencha os campos do seu Application Plan e clique em **Create Application Plan**
+
+  ![](images/46.png)
+
+  ### Criando um novo usuário para acesso a sua API. <a name="testdrive-step-10"></a>
+
+Agora no menu central selecione **Audience** e logo em seguida no menu lateral vá até **Accounts - Listing**e posteriormente clique em **Create**
+
+  ![](images/47.png)
+
+Preencha os dados do seu usuário e clique em **Create**
+
+  ![](images/48.png)
+
+Agora veja que seu usuário foi criado com sucesso.
+
+  ![](images/49.png)
+
+  ### Vinculando seu usuário a uma Application. <a name="testdrive-step-10"></a>
+
+Logo após criar seu usuário que irá acessar sua API sendo exposta pelo 3scale, clique em **Applications** e posteriormente **Create Application**
+
+  ![](images/50.png)
+
+Após preencher os dados clique em **Create Application**
+
+  ![](images/51.png)
+
+Veja que neste momento as **API Credentials** para acesso a sua API exposta no 3scale foram criadas
+
+  ![](images/52.png)
   
+Vá até a console de administração do RH-SSO e veja se este client foi sincronizado com o RH-SSO conforme a imagem abaixo:
+  
+  ![](images/53.png)
+
+
 
 
