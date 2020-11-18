@@ -169,7 +169,6 @@ Anote o **client-id** e o **cient-secret** que pode ser consultado na aba **Cred
 
 ![](images/23.png)
 
-
 ### Expondo sua API backend no 3scale. <a name="testdrive-step-6"></a>
 
 Neste exemplo iremos expor uma API backend que foi realizado o deploy no Openshift. O código desta api e as informações de deploy no Openshift podem ser encotradas em: https://github.com/raraujo-dev/spring-boot-rest-api
@@ -257,7 +256,6 @@ Em **OIDC AUTHORIZATION FLOW** selecione:
 Em **CREDENTIALS LOCATION** selecione **As HTTP Headers**
 
 ![](images/38.png)
-
 
 Role a página até o final e clique em **UPDATE PRODUCT**
 
@@ -382,7 +380,6 @@ O **token_endpoint** do seu realm pode ser consultado na console do RH-SSO em **
   
   ![](images/56.png)
 
-
 Irei utilizar o postman para realizar este teste:
 
   ![](images/57.png)
@@ -397,7 +394,7 @@ Irei utilizar o postman para realizar este teste:
 
    ![](images/59.png)
 
-No postman, faça uma request informando o **endpoint** e a **Mapping Rule**da API exposta no 3scale.
+No postman, faça uma request informando o **endpoint** e a **Mapping Rule** da API exposta no 3scale.
 
 No header passe como parâmetro a variável **Authorization** com o valor **Bearer token_coletado** conforme na imagem a seguir:
 
