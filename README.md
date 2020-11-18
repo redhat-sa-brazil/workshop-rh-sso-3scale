@@ -251,4 +251,61 @@ Em **CREDENTIALS LOCATION** selecione **As HTTP Headers**
 
 Role a página até o final e clique em **UPDATE PRODUCT**
 
+### Configurando o Zync pod. <a name="testdrive-step-8"></a>
+
+Você deve estabelecer uma conexão SSL entre Zync e Red Hat Single Sign-On que será responsável por sincronizar os dados entre o 3scale e o RH-SSO. Este procedimento pode ser encontrado na documentação em **[Configure Zync to use custom CA certificates]**(https://access.redhat.com/documentation/en-us/red_hat_3scale_api_management/2.7/html/administering_the_api_gateway/openid-connect#configure_zync_to_use_custom_ca_certificates)
+
+Após realizar o login no cluster openshift, execute o comando abaixo no namespace onde está instalado o 3scale.
+
+    oc get pods
+    
+![](images/39.png)
+
+Observe que o pod responsável por está sincronização, no examplo acima, é o **zync-que-1-gcg5k**
+
+Agora iremos executar o comando abaixo, substituindo o <zync-pod-id> por zync-que-1-gcg5k, este comando irá buscar o certificado do pod e posteriormente irá gravar no arquivo zync.pem.
+
+    oc exec <zync-pod-id> cat /etc/pki/tls/cert.pem > zync.pem
+
+Anexe o novo arquivo ao pod Zync como ConfigMap:
+
+    oc create configmap zync-ca-bundle --from-file=./zync.pem
+    
+ ![](images/40.png)
+
+    oc set volume dc/zync --add --name=zync-ca-bundle --mount-path /etc/pki/tls/zync/zync.pem --sub-path zync.pem --source='{"configMap":{"name":"zync-ca-bundle","items":[{"key":"zync.pem","path":"zync.pem"}]}}'
+    
+    
+     oc patch dc/zync --type=json -p '[{"op": "add", "path": "/spec/template/spec/containers/0/volumeMounts/0/subPath", "value":"zync.pem"}]'
+
+Após o deployment, verifique se o certificado está anexado e se o conteúdo está correto:
+
+    oc exec <zync-pod-id> cat /etc/pki/tls/zync/zync.pem
+
+Configure a variável de ambiente **SSL_CERT_FILE** no Zync para apontar para o novo pacote de certificado CA:
+
+    oc set env dc/zync SSL_CERT_FILE=/etc/pki/tls/zync/zync.pem
+
+ ![](images/41.png)
+ 
+ Faça o rollout do último deploy para aplicar as novas configurações
+ 
+     oc rollout latest dc/zync
+     
+  ![](images/42.png)
+
+Execute o comando abaixo e veja que um novo rollout do zync pod foi realizado
+
+    oc get pods
+    
+  ![](images/43.png)
+
+Execute o comando #oc exec <zync-pod-id> cat /etc/pki/tls/zync/zync.pem  - para se certificar que o certificado foi anexado ao pod com sucesso.
+
+    oc exec zync-4-9mzbr cat /etc/pki/tls/zync/zync.pem
+
+  ![](images/44.png)
+  
+  
+
 
